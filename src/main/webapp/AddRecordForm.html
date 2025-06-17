@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Add Record Form</title>
+  <link rel="stylesheet" type="text/css" href="css/form-style.css">
+</head>
+<body>
+  <form method="POST" action="/../MusicRecordLibraryWebRESTProject/rest/Clients/addNewClient">
+    <h3>Add Record Info Form</h3>
+
+    <div class="form-row">
+      <label>Record ID:</label>
+      <input type="text" name="clientId" required />
+    </div>
+
+    <div class="form-row">
+      <label>Title:</label>
+      <input type="text" name="firstName" required />
+    </div>
+
+    <div class="form-row">
+      <label>Artist:</label>
+      <input type="text" name="lastName" required />
+    </div>
+
+    <div class="form-row">
+      <label>Genre:</label>
+      <input type="text" name="phoneNo" required />
+    </div>
+
+    <div class="form-row">
+	  <label>Available Copies:</label>
+	  <input 
+	    type="email" 
+	    name="email" 
+	    required 
+	    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+	    title="Enter a valid email address (e.g. user@example.com)" 
+	    placeholder="user@gmail.com"
+	  />
+	</div> 
+	
+    <div class="form-row">
+      <label>Is Rented:</label>
+      <select name="isActive" required>
+        <option value="true">True</option>
+        <option value="false">False</option> 
+      </select>
+    </div> 
+    <div class="form-buttons">
+      <input type="submit" name="submit" value="Submit"/>
+		<input type="reset" name="bcancel" id="bcancel" value="Cancel"/>
+    </div>
+  </form>
+  
+  <script> 
+    // Cancel button
+    document.getElementById('bcancel').addEventListener('click', () => {
+      window.location.href = '/MusicRecordLibraryWebRESTProject/rest/Records';
+    });
+  </script>
+  
+</body>
+</html>

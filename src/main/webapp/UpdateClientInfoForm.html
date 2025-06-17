@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Update Client Info</title>
+  <link rel='stylesheet' href='/MusicRecordLibraryWebRESTProject/css/style.css' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css\">
+
+</head>
+<body>
+	<header><h1>Music Record Library</h1></header>
+	<nav>
+        <ul>
+         <li> <a href='/MusicRecordLibraryWebRESTProject/rest/Clients'>Clients</a> </li>
+         <li> <a href='/MusicRecordLibraryWebRESTProject/rest/Records'>Records</a> </li>
+         <li> <a href='/MusicRecordLibraryWebRESTProject/rest/Rentals'>Rentals</a> </li>
+        </ul>
+       </nav>
+
+
+  <form id="updateForm">
+    <h3>Update Client Info Form</h3>
+
+    <div class="form-row">
+      <label>Client ID:</label>
+      <input type="number" id="clientId" name="clientId" required readonly />
+    </div>
+
+    <div class="form-row">
+      <label>First Name:</label>
+      <input type="text" id="firstName" name="firstName" required />
+    </div>
+
+    <div class="form-row">
+      <label>Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required />
+    </div>
+
+    <div class="form-row">
+      <label>Phone No:</label>
+      <input type="text" id="phoneNo" name="phoneNo" required />
+    </div>
+
+    <div class="form-row">
+      <label>E-mail:</label>
+      <input 
+        type="email" 
+        name="email" 
+        id="email" 
+        required 
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        title="Enter a valid email address (e.g. user@example.com)" 
+        placeholder="user@gmail.com"
+      />
+    </div>
+
+    <div class="form-row">
+      <label>Is Active:</label>
+      <select name="isActive" id="active" required>
+        <option value="true">True</option>
+        <option value="false">False</option> 
+      </select>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" id="submitBtn">Submit</button>
+      <input type="reset" name="bcancel" id="bcancel" value="Cancel" />
+    </div>
+  </form>
+
+  <script>
+    // Autofill form using URL parameters
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+
+      document.getElementById('clientId').value = params.get('clientId') || '';
+      document.getElementById('firstName').value = params.get('firstName') || '';
+      document.getElementById('lastName').value = params.get('lastName') || '';
+      document.getElementById('phoneNo').value = params.get('phoneNo') || '';
+      document.getElementById('email').value = params.get('email') || '';
+      const isActive = params.get('isActive');
+      if (isActive === 'true' || isActive === 'false') {
+        document.getElementById('active').value = isActive;
+      }
+    });
+
+    // Submit using PUT
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      const data = {
+        clientId: parseInt(document.getElementById('clientId').value),
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        phoneNo: document.getElementById('phoneNo').value,
+        email: document.getElementById('email').value,
+        isActive: document.getElementById('active').value === 'true'
+      };
+
+      fetch('/MusicRecordLibraryWebRESTProject/rest/Clients/updateClientHTML', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.text())
+        .then(html => {
+          // Display the server response
+          document.body.innerHTML = html;
+        })
+        .catch(err => alert('Error updating client: ' + err));
+    });
+    
+    //for cancel button
+    document.getElementById('bcancel').addEventListener('click', function () {
+	  window.location.href = '/MusicRecordLibraryWebRESTProject/rest/Clients';
+	});
+  </script>
+</body>
+</html>
