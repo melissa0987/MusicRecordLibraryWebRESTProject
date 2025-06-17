@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Update Rental Info</title>
+  <link rel="stylesheet" href="/MusicRecordLibraryWebRESTProject/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+</head>
+<body>
+  <header><h1>Music Record Library</h1></header>
+  <nav>
+    <ul>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Clients'>Clients</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Records'>Records</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Rentals'>Rentals</a></li>
+    </ul>
+  </nav>
+
+  <form id="updateRentalForm">
+    <h3>Update Rental Info</h3>
+
+    <div class="form-row">
+      <label>Rental ID:</label>
+      <input type="text" id="rentalId" name="rentalId" required readonly />
+    </div>
+
+    <div class="form-row">
+      <label>Client ID:</label>
+      <input type="text" id="clientId" name="clientId" required />
+    </div>
+
+    <div class="form-row">
+      <label>Record ID:</label>
+      <input type="text" id="recordID" name="recordID" required />
+    </div>
+
+    <div class="form-row">
+      <label>Rental Date:</label>
+      <input type="date" id="rentalDate" name="rentalDate" required />
+    </div>
+
+    <div class="form-row">
+      <label>Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required />
+    </div>
+
+    <div class="form-row">
+      <label>Return Date:</label>
+      <input type="date" id="returnDate" name="returnDate" />
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" id="submitBtn">Submit</button>
+      <input type="reset" id="bcancel" value="Cancel" />
+    </div>
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('rentalId').value = params.get('rentalId') || '';
+      document.getElementById('clientId').value = params.get('clientId') || '';
+      document.getElementById('recordID').value = params.get('recordID') || '';
+      document.getElementById('rentalDate').value = params.get('rentalDate') || '';
+      document.getElementById('dueDate').value = params.get('dueDate') || '';
+      document.getElementById('returnDate').value = params.get('returnDate') || '';
+    });
+
+    //submit
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const rentalData = {
+        rentalId: document.getElementById('rentalId').value,
+        client: {
+          clientId: parseInt(document.getElementById('clientId').value)
+        },
+        record: {
+          recordID: document.getElementById('recordID').value
+        },
+        rentalDate: document.getElementById('rentalDate').value,
+        dueDate: document.getElementById('dueDate').value,
+        returnDate: document.getElementById('returnDate').value || null
+      };
+
+      fetch('/MusicRecordLibraryWebRESTProject/rest/Rentals/updateRentalInfo', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(rentalData)
+      })
+      .then(response => response.text())
+      .then(html => {
+        document.body.innerHTML = html;
+      })
+      .catch(err => alert('Error updating rental: ' + err));
+    });
+
+    //cancel
+    document.getElementById('bcancel').addEventListener('click', () => {
+      window.location.href = '/MusicRecordLibraryWebRESTProject/rest/Rentals';
+    });
+  </script>
+</body>
+</html>

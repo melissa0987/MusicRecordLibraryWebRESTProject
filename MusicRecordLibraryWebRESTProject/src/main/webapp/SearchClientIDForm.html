@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Client ID Search Form</title>
+  <link rel="stylesheet" href="/MusicRecordLibraryWebRESTProject/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+</head>
+<body>
+  <header><h1>Music Record Library</h1></header>
+  <nav>
+    <ul>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Clients'>Clients</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Records'>Records</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Rentals'>Rentals</a></li>
+    </ul>
+  </nav>
+  
+  
+  <form method="GET" action="/MusicRecordLibraryWebRESTProject/rest/Clients/searchClientPOST">
+    <h3>Search Client ID Form</h3>
+
+    <div class="form-row">
+      <label>Client ID:</label>
+      <input type="text" name="clientId" required />
+    </div>
+
+    
+   <div class="form-buttons">
+      <input type="submit" name="submit" value="Submit"/>
+		<input type="reset" name="bcancel" value="Cancel"/>
+    </div>
+  </form>
+</body>
+</html>

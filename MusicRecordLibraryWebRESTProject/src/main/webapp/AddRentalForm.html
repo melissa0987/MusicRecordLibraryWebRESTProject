@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Add Rental</title>
+  <link rel='stylesheet' href='/MusicRecordLibraryWebRESTProject/css/style.css' />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+
+  <header><h1>Music Record Library</h1></header>
+  <nav>
+    <ul>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Clients'>Clients</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Records'>Records</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Rentals'>Rentals</a></li>
+    </ul>
+  </nav>
+
+  <form method="POST" action="/MusicRecordLibraryWebRESTProject/rest/Rentals/addNewRental">
+    <h3>Add New Rental Form</h3>
+
+    <div class="form-row">
+      <label>Rental ID:</label>
+      <input type="text" name="rentalId" required />
+    </div>
+
+    <div class="form-row">
+      <label>Client ID:</label>
+      <select name="clientId" id="clientSelect" required>
+        <option value="">Select Client</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Record ID:</label>
+      <select name="recordID" id="recordSelect" required>
+        <option value="">Select Record</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Rental Date:</label>
+      <input type="date" name="rentalDate" required />
+    </div>
+
+    <div class="form-row">
+      <label>Due Date:</label>
+      <input type="date" name="dueDate" required />
+    </div>
+
+    <div class="form-buttons">
+      <input type="submit" value="Submit" />
+      <input type="reset" name="bcancel" id="bcancel" value="Cancel" />
+    </div>
+  </form>
+
+  <script>
+    // Populate dropdowns from REST JSON endpoints
+    document.addEventListener("DOMContentLoaded", () => {
+      fetch('/MusicRecordLibraryWebRESTProject/rest/Rentals/allClientsJSON')
+        .then(response => response.json())
+        .then(data => {
+          const clientSelect = document.getElementById('clientSelect');
+          data.forEach(client => {
+            const option = document.createElement('option');
+            option.value = client.clientId;
+            option.textContent = `${client.clientId} - ${client.firstName} ${client.lastName}`;
+            clientSelect.appendChild(option);
+          });
+        });
+
+      fetch('/MusicRecordLibraryWebRESTProject/rest/Rentals/allRecordsJSON')
+        .then(response => response.json())
+        .then(data => {
+          const recordSelect = document.getElementById('recordSelect');
+          data.forEach(record => {
+            const option = document.createElement('option');
+            option.value = record.recordID;
+            option.textContent = `${record.recordID} - ${record.title}`;
+            recordSelect.appendChild(option);
+          });
+        });
+    });
+
+    // Cancel button action
+    document.getElementById('bcancel').addEventListener('click', () => {
+      window.location.href = '/MusicRecordLibraryWebRESTProject/rest/Rentals';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Music Library Record: Update Record Info</title>
+  <link rel="stylesheet" href="/MusicRecordLibraryWebRESTProject/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+</head>
+<body>
+  <header><h1>Music Record Library</h1></header>
+  <nav>
+    <ul>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Clients'>Clients</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Records'>Records</a></li>
+      <li><a href='/MusicRecordLibraryWebRESTProject/rest/Rentals'>Rentals</a></li>
+    </ul>
+  </nav>
+
+  <form id="updateRecordForm">
+    <h3>Update Record Info Form</h3>
+
+    <div class="form-row">
+      <label>Record ID:</label>
+      <input type="text" id="recordID" name="recordID" required readonly />
+    </div>
+
+    <div class="form-row">
+      <label>Title:</label>
+      <input type="text" id="title" name="title" required />
+    </div>
+
+    <div class="form-row">
+      <label>Artist:</label>
+      <input type="text" id="artist" name="artist" required />
+    </div>
+
+    <div class="form-row">
+      <label>Genre:</label>
+      <input type="text" id="genre" name="genre" required />
+    </div>
+
+    <div class="form-row">
+      <label>Available Copies:</label>
+      <input type="number" id="availableCopies" name="availableCopies" required />
+    </div>
+
+    <div class="form-row">
+      <label>Total Copies:</label>
+      <input type="number" id="totalCopies" name="totalCopies" required />
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" id="submitBtn">Submit</button>
+     <input type="reset" name="bcancel" id="bcancel" value="Cancel" />
+    </div>
+  </form>
+
+  <script>
+    // Autofill form from URL parameters
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      document.getElementById('recordID').value = params.get('recordID') || '';
+      document.getElementById('title').value = params.get('title') || '';
+      document.getElementById('artist').value = params.get('artist') || '';
+      document.getElementById('genre').value = params.get('genre') || '';
+      document.getElementById('availableCopies').value = params.get('availableCopies') || '';
+      document.getElementById('totalCopies').value = params.get('totalCopies') || '';
+    });
+
+    // PUT request to update record
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const recordID = document.getElementById('recordID').value;
+      const title = document.getElementById('title').value;
+      const artist = document.getElementById('artist').value;
+      const genre = document.getElementById('genre').value;
+      const availableCopies = document.getElementById('availableCopies').value;
+      const totalCopies = document.getElementById('totalCopies').value;
+
+      const url = `/MusicRecordLibraryWebRESTProject/rest/Records/updateRecordInfo?`
+    	  + `recordID=${encodeURIComponent(recordID)}`  // 👈 FIXED: use recordId here
+    	  + `&title=${encodeURIComponent(title)}`
+    	  + `&artist=${encodeURIComponent(artist)}`
+    	  + `&genre=${encodeURIComponent(genre)}`
+    	  + `&availableCopies=${encodeURIComponent(availableCopies)}`
+    	  + `&totalCopies=${encodeURIComponent(totalCopies)}`;
+
+      fetch(url, { method: 'PUT' })
+        .then(response => response.text())
+        .then(html => {
+          document.body.innerHTML = html;
+        })
+        .catch(err => alert('Error updating record: ' + err));
+    });
+
+    // Cancel button
+    document.getElementById('bcancel').addEventListener('click', () => {
+      window.location.href = '/MusicRecordLibraryWebRESTProject/rest/Records';
+    });
+  </script>
+</body>
+</html>
