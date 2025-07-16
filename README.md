@@ -121,25 +121,16 @@ public class Rental {
 
 ## 📈 Screenshots & Examples
 
-### Clients: 
-<img width="1475" height="648" alt="image" src="https://github.com/user-attachments/assets/26153683-09b6-4889-9d09-f80cb4ae3302" />
-<img width="704" height="733" alt="image" src="https://github.com/user-attachments/assets/8b3db037-0ca6-4572-b293-2bbf2212271d" />
-<img width="1788" height="861" alt="image" src="https://github.com/user-attachments/assets/ba5ad788-01af-4247-8426-4730d4d5d918" />
-<img width="537" height="216" alt="image" src="https://github.com/user-attachments/assets/2f079e74-9b77-4552-82dd-4bef20f3f1b9" />
-<img width="544" height="571" alt="image" src="https://github.com/user-attachments/assets/6db6b81a-49e6-4684-a5fb-d997b82a58c4" />
+### 👤 Clients
+<img src="https://github.com/user-attachments/assets/26153683-09b6-4889-9d09-f80cb4ae3302" width="700" /> <img src="https://github.com/user-attachments/assets/8b3db037-0ca6-4572-b293-2bbf2212271d" width="400" /> <img src="https://github.com/user-attachments/assets/ba5ad788-01af-4247-8426-4730d4d5d918" width="800" /> <img src="https://github.com/user-attachments/assets/2f079e74-9b77-4552-82dd-4bef20f3f1b9" width="300" /> <img src="https://github.com/user-attachments/assets/6db6b81a-49e6-4684-a5fb-d997b82a58c4" width="400" />
 
-### Records: 
-<img width="1826" height="866" alt="image" src="https://github.com/user-attachments/assets/0c7bbb64-204d-4bdb-b99d-829657871eca" />
-<img width="536" height="457" alt="image" src="https://github.com/user-attachments/assets/ff7ddbb3-a00c-428e-b543-c08a3675a358" />
-<img width="1410" height="636" alt="image" src="https://github.com/user-attachments/assets/c77fe5bb-0439-40ca-933b-8b9ce3fe07df" />
-<img width="1334" height="273" alt="image" src="https://github.com/user-attachments/assets/80f0144e-6f4d-422f-8a66-8d18afc48e51" />
-<img width="847" height="520" alt="image" src="https://github.com/user-attachments/assets/89f691f3-7a7c-4b16-afb6-f601188671f8" />
 
-### Rentals: 
-<img width="1978" height="818" alt="image" src="https://github.com/user-attachments/assets/ac31c275-9006-40f8-bed2-f38ada199aed" />
-<img width="1866" height="498" alt="image" src="https://github.com/user-attachments/assets/4d28f10f-57a9-40f2-9aa0-b163ff69c7c0" />
-<img width="1402" height="383" alt="image" src="https://github.com/user-attachments/assets/1e5aedd4-46f8-4b13-9861-deaae64a8cea" />
+### 🎵 Records
+<img src="https://github.com/user-attachments/assets/0c7bbb64-204d-4bdb-b99d-829657871eca" width="800" /> <img src="https://github.com/user-attachments/assets/ff7ddbb3-a00c-428e-b543-c08a3675a358" width="350" /> <img src="https://github.com/user-attachments/assets/c77fe5bb-0439-40ca-933b-8b9ce3fe07df" width="700" /> <img src="https://github.com/user-attachments/assets/80f0144e-6f4d-422f-8a66-8d18afc48e51" width="600" /> <img src="https://github.com/user-attachments/assets/89f691f3-7a7c-4b16-afb6-f601188671f8" width="500" />
 
+
+### 💿 Rentals
+<img src="https://github.com/user-attachments/assets/ac31c275-9006-40f8-bed2-f38ada199aed" width="850" /> <img src="https://github.com/user-attachments/assets/4d28f10f-57a9-40f2-9aa0-b163ff69c7c0" width="800" /> <img src="https://github.com/user-attachments/assets/1e5aedd4-46f8-4b13-9861-deaae64a8cea" width="700" />
 
 ---
 
@@ -167,4 +158,4 @@ Developed as part of a Web Services course project. Maintained by Melissa Louise
 
 ## ℹ License
 
-Educational use only. Not intended for production environments.
+Educational use only.
