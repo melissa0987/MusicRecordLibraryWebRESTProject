@@ -134,21 +134,88 @@ public class Rental {
 
 ---
 
-## ⚖️ Testing & Usage
+## ⚖️ Installation and Setup
 
+### Prerequisites
 
-### Deployment
+- Java 8 or higher
+- Apache Tomcat 9+
+- Maven 3.6+
+- IDE (Eclipse, IntelliJ IDEA, or VS Code)
 
-1. Build with Maven
+### Installation Steps
+
+1. Clone the repository
 
 ```bash
-mvn clean install
+    git clone https://github.com/melissa0987/MusicRecordLibraryWebRESTProject.git
+    cd MusicRecordLibraryWebRESTProject
 ```
 
-2. Deploy WAR to GlassFish or Tomcat
+2. Build the project
 
+```bash
+   mvn clean compile
+```
 
+3. Deploy WAR to GlassFish or Tomcat
+
+4. Access the application
+
+- REST Services: ` http://localhost:8080/MusicRecordLibraryWebRESTProject/rest/Clients `
+- HTML Forms: `http://localhost:8080/MusicRecordLibraryWebRESTProject/AddClientForm.html`
+  
 ---
+
+## Project Structure
+```bash
+MusicRecordLibraryWebRESTProject/
+│   pom.xml
+├───.settings
+├───build
+│   └───classes
+├───src
+│   └───main
+│       ├───java
+│       │   └───musicRecordLibrary
+│       │           Client.java
+│       │           ClientResources.java
+│       │           Record.java
+│       │           RecordResources.java
+│       │           Rental.java
+│       │           RentalResources.java
+│       └───webapp
+│           │   AddClientForm.html
+│           │   AddRecordForm.html
+│           │   AddRentalForm.html
+│           │   SearchClientIDForm.html
+│           │   SearchRecordIDForm.html
+│           │   UpdateClientInfoForm.html
+│           │   UpdateRecordsForm.html
+│           │   UpdateRentalForm.html
+│           ├───css
+│           │       style.css
+│           ├───META-INF
+│           │       MANIFEST.MF
+│           └───WEB-INF
+│               │   web.xml
+│               ├───data
+│               │       clients.txt
+│               │       records.txt
+│               │       rentals.txt
+│               └───lib
+└───target
+    ├───classes
+    │   └───musicRecordLibrary
+    ├───m2e-wtp
+    │   └───web-resources
+    │       └───META-INF
+    │           │   MANIFEST.MF
+    │           └───maven
+    │               └───musicRecordLibraryWebRESTProject
+    │                   └───MusicRecordLibraryWebRESTProject
+    └───test-classes
+```
 
 ## 🤝 Contributors
 
