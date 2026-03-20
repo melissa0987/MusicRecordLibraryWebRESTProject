@@ -223,6 +223,6 @@ Developed as part of a Web Services course project. Maintained by Melissa Louise
 
 ---
 
-## ℹ License
+## License
 
 Educational use only.
