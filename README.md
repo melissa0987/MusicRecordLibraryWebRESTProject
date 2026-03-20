@@ -15,7 +15,7 @@ This project implements a comprehensive Music Record Library management system u
 
 ---
 
-## ⚙️ Technology Stack
+## Technology Stack
 
 * **Backend**: Java EE with JAX-RS (Jersey)
 * **Server**: GlassFish / Tomcat
@@ -47,7 +47,7 @@ This project implements a comprehensive Music Record Library management system u
 @DELETE   /Records/deleteRecordInfo
 ```
 
-### 📲 RentalResources.java
+### RentalResources.java
 
 ```
 @GET      /Rentals/searchRental/{rentalId}
@@ -119,7 +119,7 @@ public class Rental {
 
 ---
 
-## 📈 Screenshots & Examples
+## Screenshots & Examples
 
 ### Clients
 <img src="https://github.com/user-attachments/assets/26153683-09b6-4889-9d09-f80cb4ae3302" width="700" /> <img src="https://github.com/user-attachments/assets/8b3db037-0ca6-4572-b293-2bbf2212271d" width="400" /> <img src="https://github.com/user-attachments/assets/ba5ad788-01af-4247-8426-4730d4d5d918" width="800" /> <img src="https://github.com/user-attachments/assets/2f079e74-9b77-4552-82dd-4bef20f3f1b9" width="300" /> <img src="https://github.com/user-attachments/assets/6db6b81a-49e6-4684-a5fb-d997b82a58c4" width="400" />
