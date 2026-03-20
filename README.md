@@ -217,11 +217,7 @@ MusicRecordLibraryWebRESTProject/
     └───test-classes
 ```
 
-## Contributors
 
-Developed as part of a Web Services course project. Maintained by Melissa Louise.
-
----
 
 ## License
 
